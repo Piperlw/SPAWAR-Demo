@@ -18,14 +18,19 @@ def write_to_file ():
 # defines NewList and NewListCat as the names and addresses of devices
 def create_lists():
     for name, addr in nearby_devices:
-
         NewList =  [addr, name]
-
         NewListCat = []
         # used for historical references
         NewListCat = NewListCat.append(NewList)
 
     return
+
+def print_devices():
+    if len(nearby_devices) == 1:
+        print "Found %d device." % len(nearby_devices)
+    else:
+        print "Found %d devices." % len(nearby_devices)
+
 
 while True:              #Loops code infinitely.
 
@@ -40,15 +45,7 @@ while True:              #Loops code infinitely.
     # Begins first iteration.
     if first == 1:
 
-# possiblity of simplifying conditionals
-# creating method.
-        if len(nearby_devices) == 1:
-
-            print "Found %d device." % len(nearby_devices)
-
-        else:
-
-            print "Found %d devices." % len(nearby_devices)
+        print_devices()
 
         # Creates lists of devices
         create_lists()
@@ -66,13 +63,6 @@ while True:              #Loops code infinitely.
         # testing
         from Test_Bluetooth import test_first
 
-    elif len(nearby_devices)== 0:
-   # look into reusing the conditional above
-        print "Found 0 devices."
-
-        # Write data to a file
-        write_to_file()
-
 #If one or more devices is connected:
 #    Writes NewList to OldList
 #    Compares NewList and OldList
@@ -82,14 +72,8 @@ while True:              #Loops code infinitely.
         # Creates lists of devices
         create_lists()
 
-        if len(nearby_devices) == 1:
-
-            print "Found %d device." % len(nearby_devices)
-
-        else:
-
-            print "Found %d devices." % len(nearby_devices)
-
+        print_devices() 
+        
         # Tests Lists
         from Test_Bluetooth import test_lists
 
