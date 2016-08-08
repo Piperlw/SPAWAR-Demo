@@ -29,7 +29,7 @@ def create_lists():
     return
 
 def write_to_db():
-    db = MySQLdb.connect("localhost", "SPAWARDemoPi", "SPAWARPi", "snifferdb")
+    db = MySQLdb.connect("sensordb.sd.spawar.navy.mil", "SPAWARDemoPi", "SPAWARPi", "snifferdb")
     cursor = db.cursor()
     sql = "SELECT * FROM ActiveBlueTooth"
     for name, addr in nearby_devices:

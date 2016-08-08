@@ -132,7 +132,7 @@ def print_cells(cells):
     print_table(table)
 
 def write_to_db(MAC, name):
-    db = MySQLdb.connect("localhost", "SPAWARDemoPi", "SPAWARPi", "snifferdb")
+    db = MySQLdb.connect("sensordb.sd.spawar.navy.mil", "SPAWARDemoPi", "SPAWARPi", "snifferdb")
     cursor = db.cursor()
     sql = """REPLACE INTO ActiveWIFI (TIMESTAMP, MAC, SSID, SensorID)
             VALUES (CURRENT_TIMESTAMP, '%s', '%s', '%s')""" % (MAC, name, 'SPAWARPi')
